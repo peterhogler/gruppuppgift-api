@@ -1,0 +1,11 @@
+.grid-case-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
+    gap: 1rem;
+}
+
+.card:hover {
+    background: #2f2f2f;
+    color: white;
+    transition: all 0.4s ease;
+}

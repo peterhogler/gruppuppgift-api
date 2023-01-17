@@ -7,10 +7,11 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 body {
-  font-family: "Sofia Sans", sans-serif;
+  font-family: "Sofia Sans", sans-serif !important;
   height: 100dvh;
 }
 
@@ -24,4 +25,17 @@ a {
 
 li {
   list-style: none;
+}
+
+.grid-case-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, -webkit-max-content));
+  grid-template-columns: repeat(auto-fit, minmax(400px, max-content));
+  gap: 1rem;
+}
+
+.card:hover {
+  background: #2f2f2f;
+  color: white;
+  transition: all 0.4s ease;
 }/*# sourceMappingURL=styles.css.map */
