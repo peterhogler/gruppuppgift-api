@@ -32,11 +32,11 @@ const createCaseElement = (apiCase) => {
 
     const paragraphCreatedElement = document.createElement("p");
     paragraphCreatedElement.classList.add("card-footer");
-    paragraphCreatedElement.innerText = `Email: ${apiCase.email}`;
+    paragraphCreatedElement.innerText = `Skapad: ${apiCase.created}`;
 
     const paragraphStatusElement = document.createElement("p");
     paragraphStatusElement.classList.add("card-footer");
-    paragraphStatusElement.innerText = `Skapad: ${apiCase.status.statusName}`;
+    paragraphStatusElement.innerText = `Status: ${apiCase.status.statusName}`;
 
     const buttonElement = document.createElement("a");
     buttonElement.classList.add("btn");
@@ -51,7 +51,7 @@ const createCaseElement = (apiCase) => {
     cardBodyElement.appendChild(buttonElement);
 
     buttonElement.addEventListener("click", () => {
-        window.location.href = "cases/?id=" + apiCase.id;
+        window.location.href = "cases.html?id=" + apiCase.id;
     });
 
     return cardElement;
