@@ -6,7 +6,6 @@ const form = document.querySelector("form");
 const BASE_URL = "https://fnd22-shared.azurewebsites.net/api/";
 
 const API = new useAPI(BASE_URL);
-
 const fetchCases = async () => {
     listCases.innerHTML = "";
     const cases = await API.get("Cases");
