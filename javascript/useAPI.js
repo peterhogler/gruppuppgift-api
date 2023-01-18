@@ -16,6 +16,6 @@ export default class useAPI {
             },
             body: JSON.stringify(data)
         });
-        return await res.json();
+        return await res;
     }
 }

@@ -23,6 +23,7 @@ const getCases = async function(){
 }
 
 const getComments = (caseComments) => { 
+    commentList.innerHTML = ""
     console.log(caseComments)
     caseComments.forEach(function (comment) {
         console.log(comment.message)
@@ -56,17 +57,9 @@ form.addEventListener("submit", async function(e){
     const newComment = {caseId: id, email: email, message: comment}
     
     const respone = await API.post("Comments", newComment)
-    
-    
-    commentList.insertAdjacentHTML("afterbegin", `<li class="card mb-3 p-2">
-        ${comment.message} <br>
-        ${comment.email} <br>
-        ${comment.created} 
-        </li>`)
 
-    
-    
    
+    getCases()
 })
 
 
