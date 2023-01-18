@@ -18,7 +18,7 @@
         <nav class="navbar p-2 bg-body-tertiary">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand fs-2" href="#">Cases App</a>
+                    <a class="navbar-brand fs-2" href="index.html">Cases App</a>
                 </div>
             </div>
         </nav>
@@ -49,14 +49,18 @@
 
         <div class="container">
             <h1 class="text-center">Kommentarfält</h1>
-            <form>
+            <form id="comment-form">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email-comment" class="form-control mb-3" placeholder="Email@ägg.com">
+                <label for="comment" class="form-label">Kommentarer:</label>
                 <input type="text" class="form-control" id="comment" placeholder="Jobbig problem" name="comment">
                 <br>
-                <button type="submit" class="btn btn-primary">Lägg till</button>
+                <button type="submit" id="post" class="btn btn-primary">Lägg till</button>
             </form>
 
-            <ul class="mt-3">
-                <li class="card">KOMMENTAR</li>
+            <label for="comments" class="fs-2">Kommentarer</label>
+            <ul id="comments-post" class="mt-3">
+                
             </ul>
         </div>
     

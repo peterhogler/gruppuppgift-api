@@ -4,17 +4,38 @@ const email = document.querySelector("#email")
 const message = document.querySelector("#message")
 const created = document.querySelector("#created")
 const status = document.querySelector("#status")
+const commentList = document.querySelector("#comments-post")
 
 const id = new URLSearchParams(window.location.search).get("id");
-console.log(id)
+
 const BASE_URL = "https://fnd22-shared.azurewebsites.net/api/";
 const API = new useAPI(BASE_URL);
 
 const getCases = async function(){
     const case1 = await API.get(`Cases/${id}`)
-    console.log(case1)
+    
     caseGetInfo (case1)
+
+    getComments(case1.comments)
+
+    console.log(case1)
+    
 }
+
+const getComments = (caseComments) => { 
+    console.log(caseComments)
+    caseComments.forEach(function (comment) {
+        console.log(comment.message)
+        commentList.insertAdjacentHTML("beforeend", `<li class="card mb-3 p-2">
+        ${comment.message} <br>
+        ${comment.email} <br>
+        ${comment.created} 
+        </li>`)
+        
+
+    })
+}
+
 
 const caseGetInfo = function(oneCase){
     subject.innerText = oneCase.subject;
@@ -24,5 +45,30 @@ const caseGetInfo = function(oneCase){
     status.innerText = oneCase.status.statusName;
 }
 
+const form = document.getElementById("comment-form")
+
+form.addEventListener("submit", async function(e){
+    e.preventDefault()
+
+    const comment = document.getElementById("comment").value
+    const email = document.getElementById("email-comment").value
+
+    const newComment = {caseId: id, email: email, message: comment}
+    
+    const respone = await API.post("Comments", newComment)
+    
+    
+    commentList.insertAdjacentHTML("afterbegin", `<li class="card mb-3 p-2">
+        ${comment.message} <br>
+        ${comment.email} <br>
+        ${comment.created} 
+        </li>`)
+
+    
+    
+   
+})
+
 
 getCases()
+
