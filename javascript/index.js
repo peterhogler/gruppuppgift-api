@@ -58,8 +58,6 @@ const createCaseElement = (apiCase) => {
     return cardElement;
 };
 
-<<<<<<< Updated upstream
-=======
 const checkStatusId = (statusId) => {
     switch (statusId) {
         case 1:
@@ -72,7 +70,6 @@ const checkStatusId = (statusId) => {
             "";
     }
 };
->>>>>>> Stashed changes
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
