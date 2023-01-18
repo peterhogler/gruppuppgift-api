@@ -57,7 +57,6 @@ const createCaseElement = (apiCase) => {
     return cardElement;
 };
 
-
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
