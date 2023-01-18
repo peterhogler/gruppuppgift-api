@@ -5,6 +5,7 @@ const message = document.querySelector("#message")
 const created = document.querySelector("#created")
 const status = document.querySelector("#status")
 const commentList = document.querySelector("#comments-post")
+const dropDown = document.querySelector('select[name=caseStatus]')
 
 const id = new URLSearchParams(window.location.search).get("id");
 
@@ -62,6 +63,17 @@ form.addEventListener("submit", async function(e){
     getCases()
 })
 
+dropDown.addEventListener('change', async (e) => {
+console.log(dropDown.value)
+
+const statusObject = {
+    id: id,
+    statusId: dropDown.value
+}
+const response = await API.put(`Cases/${id}`, statusObject)
+getCases()
+
+})
 
 getCases()
 

@@ -18,4 +18,15 @@ export default class useAPI {
         });
         return await res;
     }
+
+    async put(endpoint, data) {
+        const res = await fetch(this.host + endpoint, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return await res;
+    }
 }
