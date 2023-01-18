@@ -37,6 +37,7 @@ const createCaseElement = (apiCase) => {
     const paragraphStatusElement = document.createElement("p");
     paragraphStatusElement.classList.add("card-footer");
     paragraphStatusElement.innerText = `Status: ${apiCase.status.statusName}`;
+    paragraphStatusElement.classList.add(checkStatusId(apiCase.status.id));
 
     const buttonElement = document.createElement("a");
     buttonElement.classList.add("btn");
@@ -57,6 +58,21 @@ const createCaseElement = (apiCase) => {
     return cardElement;
 };
 
+<<<<<<< Updated upstream
+=======
+const checkStatusId = (statusId) => {
+    switch (statusId) {
+        case 1:
+            return "text-danger";
+        case 2:
+            return "text-warning";
+        case 3:
+            return "text-success";
+        default:
+            "";
+    }
+};
+>>>>>>> Stashed changes
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
